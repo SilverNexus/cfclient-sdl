@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# VSCode data that is specific to a user's setup.
+.vscode
