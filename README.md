@@ -1,11 +1,13 @@
 # cfclient-sdl
+
 An(other) attempt to reconstruct the Crossfire RPG Game client in SDL2.
 
 The goal of this project is to replace the GTK2 client with a more modernized codebase,
 implementing some mechanics that are missing from the GTK2 client,
 using libraries actually meant to be for games.
 
-###Current Status of Implementation:
+### Current Status of Implementation:
+
 - User Visible:
     - Metaserver Selection: NOT STARTED
     - Accounts: NOT STARTED
