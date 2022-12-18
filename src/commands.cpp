@@ -55,8 +55,8 @@ std::map<const char *, CmdMapping> initialize_command_map() {
     commands.insert(std::pair<const char *, CmdMapping>("tick",            { "tick",            NULL, INT_ARRAY })); /* uint32 */
     commands.insert(std::pair<const char *, CmdMapping>("music",           { "music",           NULL, ASCII }));
     commands.insert(std::pair<const char *, CmdMapping>("sound2",          { "sound2",          NULL, MIXED })); /* int8, int8, int8,  int8,
-                                                                                        * int8, int8, chars, int8,
-                                                                                        * chars */
+                                                                                                                  * int8, int8, chars, int8,
+                                                                                                                  * chars */
     commands.insert(std::pair<const char *, CmdMapping>("anim",            { "anim",            NULL, SHORT_ARRAY }));
     commands.insert(std::pair<const char *, CmdMapping>("smooth",          { "smooth",          NULL, SHORT_ARRAY }));
     commands.insert(std::pair<const char *, CmdMapping>("player",          { "player",          NULL, MIXED })); /* 3 ints, int8, str */
