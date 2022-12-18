@@ -11,6 +11,7 @@
  */
 
 #include <map>
+#include <cstddef>
 
 // Enumeration borrowed from the GTK code since it also fits exactly what we need.
 enum CmdFormat {
@@ -34,44 +35,44 @@ std::map<const char *, CmdMapping> initialize_command_map() {
     // Use a sorted map so that we can quickly search commands as they come in.
     std::map<const char *, CmdMapping> commands;
     // TODO: Implement the commands
-    commands.insert(std::pair("map2",            { "map2",            NULL, SHORT_ARRAY }));
-    commands.insert(std::pair("map_scroll",      { "map_scroll",      NULL, ASCII }));
-    commands.insert(std::pair("magicmap",        { "magicmap",        NULL, MIXED }));   /* ASCII, then binary params */
-    commands.insert(std::pair("newmap",          { "newmap",          NULL, NODATA }));
-    commands.insert(std::pair("mapextended",     { "mapextended",     NULL, MIXED })); /* chars, then SHORT_ARRAY */
-    commands.insert(std::pair("item2",           { "item2",           NULL, MIXED }));
-    commands.insert(std::pair("upditem",         { "upditem",         NULL, MIXED }));
-    commands.insert(std::pair("delitem",         { "delitem",         NULL, INT_ARRAY }));
-    commands.insert(std::pair("delinv",          { "delinv",          NULL, ASCII }));
-    commands.insert(std::pair("addspell",        { "addspell",        NULL, MIXED }));
-    commands.insert(std::pair("updspell",        { "updspell",        NULL, MIXED }));
-    commands.insert(std::pair("delspell",        { "delspell",        NULL, INT_ARRAY }));
-    commands.insert(std::pair("drawinfo",        { "drawinfo",        NULL, ASCII }));
-    commands.insert(std::pair("drawextinfo",     { "drawextinfo",     NULL, ASCII }));
-    commands.insert(std::pair("stats",           { "stats",           NULL, STATS }));
-    commands.insert(std::pair("image2",          { "image2",          NULL, MIXED })); /* int, int8, int, PNG */
-    commands.insert(std::pair("face2",           { "face2",           NULL, MIXED })); /* int16, int8, int32, string */
-    commands.insert(std::pair("tick",            { "tick",            NULL, INT_ARRAY })); /* uint32 */
-    commands.insert(std::pair("music",           { "music",           NULL, ASCII }));
-    commands.insert(std::pair("sound2",          { "sound2",          NULL, MIXED })); /* int8, int8, int8,  int8,
+    commands.insert(std::pair<const char *, CmdMapping>("map2",            { "map2",            NULL, SHORT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("map_scroll",      { "map_scroll",      NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("magicmap",        { "magicmap",        NULL, MIXED }));   /* ASCII, then binary params */
+    commands.insert(std::pair<const char *, CmdMapping>("newmap",          { "newmap",          NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("mapextended",     { "mapextended",     NULL, MIXED })); /* chars, then SHORT_ARRAY */
+    commands.insert(std::pair<const char *, CmdMapping>("item2",           { "item2",           NULL, MIXED }));
+    commands.insert(std::pair<const char *, CmdMapping>("upditem",         { "upditem",         NULL, MIXED }));
+    commands.insert(std::pair<const char *, CmdMapping>("delitem",         { "delitem",         NULL, INT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("delinv",          { "delinv",          NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("addspell",        { "addspell",        NULL, MIXED }));
+    commands.insert(std::pair<const char *, CmdMapping>("updspell",        { "updspell",        NULL, MIXED }));
+    commands.insert(std::pair<const char *, CmdMapping>("delspell",        { "delspell",        NULL, INT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("drawinfo",        { "drawinfo",        NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("drawextinfo",     { "drawextinfo",     NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("stats",           { "stats",           NULL, STATS }));
+    commands.insert(std::pair<const char *, CmdMapping>("image2",          { "image2",          NULL, MIXED })); /* int, int8, int, PNG */
+    commands.insert(std::pair<const char *, CmdMapping>("face2",           { "face2",           NULL, MIXED })); /* int16, int8, int32, string */
+    commands.insert(std::pair<const char *, CmdMapping>("tick",            { "tick",            NULL, INT_ARRAY })); /* uint32 */
+    commands.insert(std::pair<const char *, CmdMapping>("music",           { "music",           NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("sound2",          { "sound2",          NULL, MIXED })); /* int8, int8, int8,  int8,
                                                                                         * int8, int8, chars, int8,
                                                                                         * chars */
-    commands.insert(std::pair("anim",            { "anim",            NULL, SHORT_ARRAY }));
-    commands.insert(std::pair("smooth",          { "smooth",          NULL, SHORT_ARRAY }));
-    commands.insert(std::pair("player",          { "player",          NULL, MIXED })); /* 3 ints, int8, str */
-    commands.insert(std::pair("comc",            { "comc",            NULL, SHORT_INT }));
-    commands.insert(std::pair("addme_failed",    { "addme_failed",    NULL, NODATA }));
-    commands.insert(std::pair("addme_success",   { "addme_success",   NULL, NODATA }));
-    commands.insert(std::pair("version",         { "version",         NULL, ASCII }));
-    commands.insert(std::pair("goodbye",         { "goodbye",         NULL, NODATA }));
-    commands.insert(std::pair("setup",           { "setup",           NULL, ASCII }));
-    commands.insert(std::pair("failure",         { "failure",         NULL, ASCII }));
-    commands.insert(std::pair("accountplayers",  { "accountplayers",  NULL, ASCII }));
-    commands.insert(std::pair("query",           { "query",           NULL, ASCII }));
-    commands.insert(std::pair("replyinfo",       { "replyinfo",       NULL, ASCII }));
-    commands.insert(std::pair("ExtendedTextSet", { "ExtendedTextSet", NULL, NODATA }));
-    commands.insert(std::pair("ExtendedInfoSet", { "ExtendedInfoSet", NULL, NODATA }));
-    commands.insert(std::pair("pickup",          { "pickup",          NULL, INT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("anim",            { "anim",            NULL, SHORT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("smooth",          { "smooth",          NULL, SHORT_ARRAY }));
+    commands.insert(std::pair<const char *, CmdMapping>("player",          { "player",          NULL, MIXED })); /* 3 ints, int8, str */
+    commands.insert(std::pair<const char *, CmdMapping>("comc",            { "comc",            NULL, SHORT_INT }));
+    commands.insert(std::pair<const char *, CmdMapping>("addme_failed",    { "addme_failed",    NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("addme_success",   { "addme_success",   NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("version",         { "version",         NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("goodbye",         { "goodbye",         NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("setup",           { "setup",           NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("failure",         { "failure",         NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("accountplayers",  { "accountplayers",  NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("query",           { "query",           NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("replyinfo",       { "replyinfo",       NULL, ASCII }));
+    commands.insert(std::pair<const char *, CmdMapping>("ExtendedTextSet", { "ExtendedTextSet", NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("ExtendedInfoSet", { "ExtendedInfoSet", NULL, NODATA }));
+    commands.insert(std::pair<const char *, CmdMapping>("pickup",          { "pickup",          NULL, INT_ARRAY }));
 
     return commands;
 }
