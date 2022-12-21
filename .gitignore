@@ -33,3 +33,7 @@
 
 # VSCode data that is specific to a user's setup.
 .vscode
+
+# Cmake-generated files
+CMakeFiles/
+CMakeCache.txt
